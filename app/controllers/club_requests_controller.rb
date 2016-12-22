@@ -7,8 +7,10 @@ class ClubRequestsController < ApplicationController
 
   def create
     request = ClubRequest.new request_params
+    @user = admin
     if request.save
       ApplicationMailer.sent_request_club.deliver
+      # message_to_room @user.chatwork, "#{Settings.club_request_admin}"
       flash[:success] = t("success_create")
     else
       flash_error request

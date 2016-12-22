@@ -92,3 +92,14 @@ en:
   time:
     formats:
       date: "%H:%M %d/%m/%Y"
+  request_approved: "Request has been approve"
+  deleted_successfull: "Request deleted"
+  delete_unsuccessfull: "Cant delete request!"
+  request_new_club: "Request new club"
+  club_not_found: "Can not found club"
+  require_manager: "Only club manager can do this action!"
+  album_name: "Album name"
+  my_club: " My club"
+  not_found_album: "Album not found"
+  create_club: " Create Club"
+  notification: "Notification"

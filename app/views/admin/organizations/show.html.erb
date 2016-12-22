@@ -15,7 +15,8 @@
                 </tr>
                 <tr>
                   <td><%= t "create_at" %></td>
-                  <td><%= @organization.created_at %></td>
+                  <td><%= l @organization.created_at, format: :date %>
+                  </td>
                 </tr>
                 <tr>
                   <td><%= t "last_update" %></td>

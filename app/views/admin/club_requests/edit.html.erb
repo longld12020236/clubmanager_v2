@@ -1,3 +1,4 @@
+<br>
 <div class="row">
   <div class="col-md-12" >
     <div class="panel panel-info">
@@ -31,8 +32,12 @@
         </div>
       </div>
       <div class="panel-footer">
-        <%= form_for [:admin, @club_request] do |f| %>
-          <%= f.submit "Approve", class: "btn btn-default" %>
+        <% if @club_request.approve? %>
+          <%= button_to "Approved", t("href"), :method => "get" ,class: "btn btn-default" %>
+        <% else %>
+          <%= form_for [:admin, @club_request] do |f| %>
+            <%= f.submit "Approve", class: "btn btn-default" %>
+          <% end %>
         <% end %>
       </div>
     </div>
