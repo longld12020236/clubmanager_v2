@@ -6,7 +6,11 @@ class ClubMemberController < ApplicationController
   def index
     userclub = UserClub.club_scope current_user
     array_id = attribute_object_array(userclub, "club_id")
-    @unjoin_club = Club.not_join array_id
+    if params[:id] == "joined"
+      @clubs = current_user.clubs
+    else
+      @clubs = Club.not_join array_id
+    end
   end
 
   def show

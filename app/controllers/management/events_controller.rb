@@ -13,8 +13,8 @@ class Management::EventsController < ApplicationController
   def create
     event = Event.new event_params
     if event.save
-      message_to_room event.club.chatwork,
-        "#{Settings.view_detail}#{get_path(event_path event)}"
+      # message_to_room event.club.chatwork,
+      #   "#{Settings.view_detail}#{get_path(event_path event)}"
       flash[:succsess] = t "succsess_create"
     else
       flash_error event

@@ -1,0 +1,2 @@
+module Management::EventRequestsHelper
+end

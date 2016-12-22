@@ -5,6 +5,9 @@ class UserClub < ApplicationRecord
   scope :user_club, ->club_id do
     where club_id: club_id
   end
+
+  scope :manager_club, ->{where is_manager: true}
+
   scope :unactive, ->{where status: false}
 
   def self.user_club_scope user

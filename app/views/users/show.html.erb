@@ -20,11 +20,11 @@
                 </tr>
                 <tr>
                   <td><%= t("user.sign_at") %></td>
-                  <td><%= @user.created_at %></td>
+                  <td><%= l @user.created_at, format: :date %></td>
                 </tr>
                 <tr>
                   <td><%= t("user.last_update") %></td>
-                  <td><%= @user.updated_at %></td>
+                  <td><%= l @user.updated_at, format: :date %></td>
                 </tr>
                 <tr>
                   <td><%= t("organization") %></td>
