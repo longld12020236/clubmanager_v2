@@ -10,6 +10,11 @@ class Club < ApplicationRecord
 
   mount_uploader :image, ImagesUploader
 
+  validates :name, presence: true, uniqueness: true
+  validates :chatwork, uniqueness: true
+  validates :description, presence: true,
+    length: {minimum: Settings.min_description}
+
   def self.actives_club
     @club = Club.where status: true
   end

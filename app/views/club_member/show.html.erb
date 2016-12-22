@@ -45,6 +45,9 @@
   </span>
 </section>
 
+  <% @user.each do |user| %>
+    <%= user.full_name %>
+  <% end %>
   <%= render "poopups/edit_detail_club" %>
 
   <%= render "management/events/index" %>

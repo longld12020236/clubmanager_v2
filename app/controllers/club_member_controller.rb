@@ -15,6 +15,8 @@ class ClubMemberController < ApplicationController
 
   def show
     @events = @club.events
+    @users = User.all
+    @user = @club.users
   end
 
   def edit

@@ -26,3 +26,12 @@ User.create!(
   role: 1
 )
 
+User.create!(
+  email: "longlyduc@gmail.com",
+  organization_id: 1,
+  full_name: "Ly Duc Long",
+  password: "longlyduc@gmail.com",
+  phone: "01664708942",
+  chatwork: "59733356",
+  role: 1
+)

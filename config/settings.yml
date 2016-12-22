@@ -5,3 +5,5 @@ defaul_avatar: "default_user.png"
 view_detail: "Một hoạt động sắp diễn ra!!! xem chi tiết tại: "
 club_request_admin: "A request create club has been sent to you"
 event_request_admin: "A request create event has been sent to you"
+min_description: 10
+min_comment: 2
