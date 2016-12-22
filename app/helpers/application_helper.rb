@@ -46,6 +46,14 @@ module ApplicationHelper
     end
   end
 
+  def manager_verify
+    user = UserClub.find_by user_id: current_user.id
+    unless user.is_manager == true
+      flash[:danger] = t("require_manager")
+      redirect_to root_url
+    end
+  end
+
   def is_management? club
     club = UserClub.club_scope(current_user).find_by(club_id: club.id)
     club.is_manager if club

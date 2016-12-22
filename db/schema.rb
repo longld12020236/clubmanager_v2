@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161221163747) do
     t.string   "notification"
     t.string   "description"
     t.integer  "money",           default: 0
-    t.integer  "rating",          default: 0
+    t.float    "rating",          default: 0.0
     t.boolean  "is_active",       default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20161221163747) do
     t.string   "name"
     t.integer  "album_id"
     t.integer  "user_id"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_images_on_album_id"

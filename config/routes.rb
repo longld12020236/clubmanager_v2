@@ -11,9 +11,13 @@ Rails.application.routes.draw do
   resources :user_clubs, only: [:create, :destroy, :update]
   resources :club_member
   resources :users, only: [:edit, :show]
+  resources :albums, only: [:index, :show]
+  resources :images
   namespace :management do
     resources :events
     resources :news
+    resources :albums
+    resources :user_clubs
   end
   namespace :admin do
     resources :club_requests

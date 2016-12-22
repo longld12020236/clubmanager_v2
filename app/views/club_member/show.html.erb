@@ -27,6 +27,13 @@
       </li>
     </ul>
     <% end %>
+    <div>
+      <% if is_management? @club %>
+        <%= link_to t("club_albums"), management_albums_path(id: @club.id), class: "button big icon fa-book" %>
+      <% else %>
+        <%= link_to t("club_albums"), albums_path(id: @club.id), class: "button big icon fa-book" %>
+      <% end %>
+    </div><br>
     <div class="join_leave_toggle">
       <%= render "user_clubs/form_join_leave" %>
     </div>
