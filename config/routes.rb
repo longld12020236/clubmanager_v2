@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :users, controllers: {registrations: "registrations"}
+
   root "static_pages#index"
-  get "list_users" => "users#index"
+
+  resources :news, only: [:show, :index]
+  resources :comments, except: :show
   resources :club_requests
   resources :event_requests
   resources :events, only: :show
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
   resources :images
   namespace :management do
     resources :events
-    resources :news
+    resources :news, except: :show
     resources :albums
     resources :user_clubs
   end
@@ -26,4 +31,5 @@ Rails.application.routes.draw do
     resources :organizations
   end
   resources :organizations, only: :show
+  get "list_users" => "users#index"
 end

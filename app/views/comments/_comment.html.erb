@@ -1,0 +1,26 @@
+<% @comments.each do |comment| %>
+  <div class='<%= "txt_comment #{comment.id}" %>'>
+   <span class="icon"><%= image_tag comment.user.avatar.url, class: "circle avartar", width: 100 %></span>
+   <h4><%= link_to comment.user.full_name, comment.user %></h4>
+   <% if comment.user == current_user %>
+     <section>
+        <%= link_to edit_comment_path(comment), remote: true do %>
+           <span class="icon fa-pencil"></span>
+        <% end %>
+        <%= link_to comment_path(comment),
+        method: :delete, data: {confirm: "Are you sure?",remote: true} do %>
+          <span class="icon fa-trash"></span>
+        <% end %>
+     </section>
+   <% end %>
+   <p>
+      <%= comment.content %>
+   <dir>
+      <i><%= "Comment at: #{comment.created_at}" %></i>
+      <div class="space">|</div>
+      <%= link_to "Reply", Settings.href %>
+   </dir>
+   </p>
+  </div>
+  <hr>
+<% end %>

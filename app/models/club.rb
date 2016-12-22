@@ -8,6 +8,7 @@ class Club < ApplicationRecord
   has_many :users, through: :user_clubs
   belongs_to :organization
 
+  mount_uploader :image, ImagesUploader
 
   def self.actives_club
     @club = Club.where status: true
@@ -20,4 +21,6 @@ class Club < ApplicationRecord
       self.where("id NOT IN (?)", array_id)
     end
   end
+
+
 end

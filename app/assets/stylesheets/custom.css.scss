@@ -216,7 +216,7 @@ $table-header-border: 1px solid #FFF;
     th {
       display: none; // hide all the table header for mobile
       border: $header-border;
-      background-color: $header-background-color;
+      background-color: #ff8181;
       color: $header-text-color;
       padding: 1em;
       &:first-child { // show the first table header for mobile
@@ -358,4 +358,16 @@ float:right;
 .list-group-item-text
 {
     margin: 0 0 11px;
+}
+.thin_border{
+border:solid 1px #EDEDED;
+border-bottom:none;
+border-top:none;
+padding:10px
+}
+.thin_border author {
+float:right;
+}
+.footer_news{
+margin-bottom:850px;
 }

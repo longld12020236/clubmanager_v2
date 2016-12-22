@@ -1,0 +1,7 @@
+<div class="12u 12u$(xsmall) list_comment">
+  <%= form_for @comment, remote: true do |f| %>
+  <%= f.text_area :content, class: "text_comment" %><br>
+  <%= hidden_field :comment, :news_id, value: @comment.news_id %>
+  <%= f.submit :Update %>
+  <% end %>
+</div>
