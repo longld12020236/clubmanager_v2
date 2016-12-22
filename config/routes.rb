@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#index"
   get "list_users" => "users#index"
   resources :club_requests
+  resources :event_requests
   resources :events, only: :show
   resources :likes, only: [:create, :destroy]
   resources :user_events, only: [:create, :destroy]

@@ -1,0 +1,57 @@
+<div class="innerpage">
+  <div class="row">
+    <div class="col-md-7">
+      <h2><%= t "request_to_manager" %></h2>
+    </div>
+    <div class="col-md-7 request event">
+      <div class="form-group">
+        <h3><%= t "request_new_event" %></h3>
+        <%= form_for @event_request, html: {id: "event_rq_form"} do |f| %>
+          <div class="form-group">
+            <%= f.label t "choose_club" %>
+            <%= f.select :club_id,
+              @clubs.collect {|item| [ item.name, item.id ]}, {},
+              {class: "form-control selectpicker", "data-live-search": true} %>
+          </div><br>
+          <div class="form-group">
+            <%= f.label t "event_name" %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "expense" %>
+            <%= f.number_field :expense, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "date_start" %>
+            <%= f.text_field :date_start, class: "form-control datepicker" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "duration" %>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <%= number_field_tag :days, nil, class: "form-control",
+                  placeholder: t("days") %>
+              </div>
+              <div class="col-md-6 form-group">
+                <%= select_tag :hour, options_for_select(0..23) %>
+                <p class="hint"><%= t "hour" %></p>
+              </div>
+              <%= f.hidden_field :duration, id: "txt_duration" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label t "location_event" %>
+            <%= f.text_field :location %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "descriptions_event" %>
+            <%= f.cktext_area :description, class: "text_area" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit t "event_request" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,6 @@ class Club < ApplicationRecord
   has_many :users, through: :user_clubs
   belongs_to :organization
 
-  def self.alias user_club
-    Club.find(user_club.club_id).name
-  end
 
   def self.actives_club
     @club = Club.where status: true
