@@ -62,4 +62,13 @@ module ApplicationHelper
   def admin
     User.find_by role: 1
   end
+
+  def attribute_object_array object, attribute
+    arr = []
+    attribute = attribute.to_sym
+    object.each_with_index do |ob, index|
+      arr[index] = ob[attribute]
+    end
+    arr
+  end
 end

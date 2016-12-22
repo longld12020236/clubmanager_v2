@@ -25,6 +25,7 @@
       <li>
       <a href="#detail_club_modal" data-toggle="modal" class="button big icon fa-pencil-square-o"><%= t "edit" %></a>
       </li>
+      <%= link_to "request to join", management_user_clubs_path(id: @club.id) %>
     </ul>
     <% end %>
     <div>

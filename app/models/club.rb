@@ -16,12 +16,11 @@ class Club < ApplicationRecord
     @club = Club.where status: true
   end
 
-  def self.club_not_join user
-    array_attribute = UserClub.club_to_array(user)
-    if array_attribute.blank?
-      Club.all
+  def self.not_join array_id
+    if array_id.blank?
+      self.all
     else
-      Club.where("id NOT IN (?)", array_attribute)
+      self.where("id NOT IN (?)", array_id)
     end
   end
 end

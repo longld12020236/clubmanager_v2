@@ -3,6 +3,12 @@ class ClubMemberController < ApplicationController
 
   before_action :load_club, only: [:show, :update]
 
+  def index
+    userclub = UserClub.club_scope current_user
+    array_id = attribute_object_array(userclub, "club_id")
+    @unjoin_club = Club.not_join array_id
+  end
+
   def show
     @events = @club.events
   end
