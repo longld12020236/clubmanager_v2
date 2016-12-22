@@ -1,0 +1,57 @@
+<br>
+<div class="row">
+  <div class="col-md-12" >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @event_request.user.full_name %> send a request</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class=" col-md-12 col-lg-12 ">
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td><%= t "club_event" %></td>
+                  <td><%= @event_request.name %></td>
+                </tr>
+                <tr>
+                  <td><%= t "descriptions_event" %></td>
+                  <td><%= @event_request.description %></td>
+                </tr>
+                <tr>
+                  <td><%= t "user_requested" %></td>
+                  <td><%= @event_request.user.full_name %></td>
+                </tr>
+                <tr>
+                  <td><%= t "expense_event" %></td>
+                  <td><%= @event_request.expense %></td>
+                </tr>
+                <tr>
+                  <td><%= t "date_start" %></td>
+                  <td><%= @event_request.date_start  %></td>
+                </tr>
+                <tr>
+                  <td><%= t "duration_event" %></td>
+                  <td><%= @event_request.duration %></td>
+                </tr>
+                <tr>
+                  <td><%= t "location_event" %></td>
+                  <td><%= @event_request.location %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <% if @event_request.approve? %>
+          <%= button_to "Approved", t("href"), :method => "get" ,class: "btn btn-default" %>
+        <% else %>
+          <%= form_for [:management, @event_request] do |f| %>
+            <%= f.submit "Approve", class: "btn btn-default" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

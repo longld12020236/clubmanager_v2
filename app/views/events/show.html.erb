@@ -19,7 +19,7 @@
   </section>
   <p><%=  %></p>
   <footer-session>
-    <%= "Post at: #{@event.created_at}" %>
+    <%= "Post at: " %><%= l @event.created_at, format: :date %>
   </footer-session>
   <section class="choose_event">
     <h3><%= render "likes/likes_toggle" %></h3>

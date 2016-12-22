@@ -8,6 +8,14 @@ Organization.create!(
   location: "6th floor, Vinh Trung Plaza, 255 - 257 Hung Vuong, Hai Chau, Da Nang"
 )
 
+Organization.create!(
+  name: "Another",
+  description: "This is a default organization",
+  phone: "0123456789",
+  email: "default@framgia.com",
+  location: "6th floor, Vinh Trung Plaza, 255 - 257 Hung Vuong, Hai Chau, Da Nang"
+)
+
 User.create!(
   email: "mahoangtienthanh@gmail.com",
   organization_id: 1,
@@ -17,12 +25,13 @@ User.create!(
   chatwork: "59733356",
   role: 1
 )
+
 User.create!(
   email: "longlyduc@gmail.com",
   organization_id: 1,
   full_name: "Ly Duc Long",
   password: "longlyduc@gmail.com",
-  phone: "0123456789",
+  phone: "01664708942",
   chatwork: "59733356",
   role: 1
 )

@@ -3,4 +3,7 @@ class News < ApplicationRecord
 
   belongs_to :user
   belongs_to :event
+
+  validates :content, presence: true
+  validates :title, presence: true
 end

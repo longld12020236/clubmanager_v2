@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
 
-  mount Ckeditor::Engine => '/ckeditor'
-
-  devise_for :users, controllers: {registrations: "registrations"}
+  devise_for :users, controllers: {registrations: "registrations",
+    confirmations: "confirmations"}
 
   root "static_pages#index"
 
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :news, except: :show
     resources :albums
     resources :user_clubs
+    resources :event_requests
   end
   namespace :admin do
     resources :club_requests

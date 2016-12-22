@@ -11,8 +11,11 @@ class Admin::ClubsController < ApplicationController
   end
 
   def create
+    @users = User.all
     club = Club.new club_params
+    club.is_active = true
     if club.save
+
       flash[:succsess] = t("success_create")
     else
       flash_error club

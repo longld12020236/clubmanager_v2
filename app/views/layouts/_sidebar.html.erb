@@ -18,19 +18,11 @@
         </li>
         <% if user_signed_in? %>
           <li>
-            <%= link_to t("post_entry"), t("href"),
-              class: "icon fa-pencil" %>
-          </li>
-          <li>
-            <%= link_to t("new_event"), t("href"),
-              class: "icon fa-ils" %>
-          </li>
-          <li>
-            <%= link_to t("other_club"), club_member_index_path(id: "a"),
+            <%= link_to t("other_club"), club_member_index_path,
               class: "icon fa-list" %>
           </li>
           <li>
-            <%= link_to t("my_club"), club_member_index_path,
+            <%= link_to t("my_club"), club_member_index_path(id: "joined"),
               class: "icon fa-list" %>
           </li>
           <% if current_user.role == "admin" %>
@@ -53,7 +45,7 @@
                   class: "icon fa-list" %>
               </li>
               <li>
-                <%= link_to t("other_club"), t("href"),
+                <%= link_to t("request_new_event"), new_event_request_path,
                   class: "icon fa-list" %>
               </li>
             </ul>

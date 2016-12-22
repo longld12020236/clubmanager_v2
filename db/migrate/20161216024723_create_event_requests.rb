@@ -9,6 +9,7 @@ class CreateEventRequests < ActiveRecord::Migration[5.0]
       t.date :date_start
       t.string :duration
       t.string :location
+      t.boolean :approve, default: false
 
       t.timestamps
     end

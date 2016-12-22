@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 20161221163747) do
     t.date     "date_start"
     t.string   "duration"
     t.string   "location"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.boolean  "approve",     default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["club_id"], name: "index_event_requests_on_club_id"
     t.index ["user_id"], name: "index_event_requests_on_user_id"
   end
