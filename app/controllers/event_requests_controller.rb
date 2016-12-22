@@ -6,10 +6,13 @@ class EventRequestsController < ApplicationController
   end
 
   def create
-    request = EventRequest.new request_params
-    if request.save
-      ApplicationMailer.sent_request_club.deliver
-      flash[:success] = t("success_create")
+    @request = EventRequest.new request_params
+    @manager = UserClub.manager_club.find_by(club_id: @request.club_id)
+    @user = User.find_by id: @manager.user_id
+    if @request.save
+      ApplicationMailer.sent_request_event(@user).deliver
+      # message_to_room @user.chatwork, "#{Settings.event_request_admin}"
+      # flash[:success] = t("success_create")
     else
       flash_error request
     end

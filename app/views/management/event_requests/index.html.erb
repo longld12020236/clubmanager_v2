@@ -1,0 +1,21 @@
+<table class="responstable">
+  <tr>
+    <th>Requester</th>
+    <th>Request create at</th>
+    <th>Action</th>
+  </tr>
+  <% @event_requests.each do |event_request|%>
+    <tr>
+      <td><%= event_request.user.full_name %></td>
+      <td><%= l event_request.created_at, format: :date %></td>
+      <td>
+        <%= link_to [:management, event_request], method: :delete, data: {confirm: "confirm_delete"} do %>
+          <span class="glyphicon glyphicon-trash" title="Delete"></span>
+        <% end %>
+        <%= link_to edit_management_event_request_path(event_request) do %>
+          <span class="glyphicon glyphicon-edit right" title="Edit"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
