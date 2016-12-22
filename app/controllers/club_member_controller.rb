@@ -27,14 +27,15 @@ class ClubMemberController < ApplicationController
     else
       flash_error @club
     end
-    redirect_to root_path
+    redirect_to :back
   end
 
   def club_member_params
     params[:name] = params[:club_member][:name]
+    params[:image] = params[:club_member][:image]
     params[:description] = params[:club_member][:description]
     params[:notification] = params[:club_member][:notification]
-    params.permit :name, :description, :notification
+    params.permit :name, :description, :notification, :image
   end
 
 end

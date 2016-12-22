@@ -14,6 +14,10 @@ class Club < ApplicationRecord
     @club = Club.where status: true
   end
 
+  def self.alias user_club
+    Club.find(user_club.club_id).name
+  end
+
   def self.not_join array_id
     if array_id.blank?
       self.all

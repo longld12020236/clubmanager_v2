@@ -17,6 +17,7 @@
 //= require util
 //= require main
 //= require bootstrap-select
+//= require bootstrap_needle
 //= require moment
 //= require ckeditor/init
 //= require_tree .

@@ -18,30 +18,33 @@
       </div>
     </p>
     <% if is_management? @club %>
-      <ul class="actions">
         <li>
           <a href="#detail_club_modal" data-toggle="modal" class="button big icon fa-pencil-square-o"><%= t "edit" %></a>
         </li>
-        <%= link_to "request to join", management_user_clubs_path(id: @club.id),
-          class: "button" %>
-        <%= link_to "request new event", management_event_requests_path(id: @club.id),
-          class: "button" %>
-      </ul>
-      <div>
-        <%= link_to t("club_albums"), management_albums_path(id: @club.id), class: "button big icon fa-book" %>
-      </div>
-    <% else %>
-      <div>
+    <% end %><br>
         <%= link_to t("club_albums"), albums_path(id: @club.id), class: "button big icon fa-book" %>
-      </div><br>
-    <% end %>
+    <% unless is_management? @club %>
     <div class="join_leave_toggle">
       <%= render "user_clubs/form_join_leave" %>
     </div>
+    <% end %>
   </div>
+
   <span class="image object">
     <%= image_tag @club.image %>
+    <div class="request_acion">
+      <% if is_management? @club %>
+      <%= link_to "new event", new_management_event_path,
+          class: "button small" %>
+        <%= link_to "request to join", management_user_clubs_path(id: @club.id),
+          class: "button small" %>
+        <%= link_to "request new event", management_event_requests_path(id: @club.id),
+      class: "button small" %>
+      <% end %>
+    </div>
   </span>
 </section>
+
   <%= render "poopups/edit_detail_club" %>
+
   <%= render "management/events/index" %>

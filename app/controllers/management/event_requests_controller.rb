@@ -20,7 +20,7 @@ class Management::EventRequestsController < ApplicationController
     if @event_request.update_attributes approve: true
       create_event(@event_request.club_id,
         @event_request.name, @event_request.description, @event_request.expense,
-        @event_request.date_start, @event_request.duration, @event_request.location)
+        @event_request.date_start, @event_request.duration, @event_request.location, @event_request.image)
       if @event.save
         ApplicationMailer.accepted_request_event(@user, @event).deliver
         ApplicationMailer.new_event_create(@users, @event).deliver
@@ -60,10 +60,10 @@ class Management::EventRequestsController < ApplicationController
   end
 
   def create_event(club_id, name, description, expense, date_start,
-    duration, location)
+    duration, location, image)
     @event = Event.new club_id: club_id, name: name,
       description: description, expense: expense, date_start: date_start,
-      duration: duration, location: location
+      duration: duration, location: location, image: image
     @event.save
   end
 end

@@ -6,10 +6,10 @@
     <% @events.each do |item| %>
       <article>
         <span class="icon">
-        <img src="http://www.w3schools.com/w3images/boy.jpg" width="100" class="circle">
+          <%= image_tag item.image, class: "circle", witdh: 100 %>
         </span>
         <div class="content">
-          <h3><%= link_to item.name,item %></h3>
+          <h3><%= link_to item.name, item %></h3>
           <p><%= item.description.truncate_words 10 %></p>
           <i><%= "Date start: #{item.date_start}" %></i>
         </div>

@@ -4,6 +4,7 @@ class CreateEventRequests < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.references :club, foreign_key: true
       t.string :name
+      t.text :image
       t.text :description
       t.integer :expense, default: 0
       t.date :date_start

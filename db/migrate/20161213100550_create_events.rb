@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.references :club, foreign_key: true
       t.date :date_start
       t.string :duration
+      t.string :image
       t.string :location
       t.integer :number_like, default: 0
       t.timestamps

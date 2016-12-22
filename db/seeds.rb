@@ -11,7 +11,7 @@ Organization.create!(
 Organization.create!(
   name: "Another",
   description: "This is a default organization",
-  phone: "",
+  phone: "(0166) 990-9325",
   email: "default@framgia.com",
   location: "6th floor, Vinh Trung Plaza, 255 - 257 Hung Vuong, Hai Chau, Da Nang"
 )

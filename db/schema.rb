@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20161221163747) do
     t.integer  "user_id"
     t.integer  "club_id"
     t.string   "name"
+    t.text     "image"
     t.text     "description"
     t.integer  "expense",     default: 0
     t.date     "date_start"
@@ -106,6 +107,7 @@ ActiveRecord::Schema.define(version: 20161221163747) do
     t.integer  "club_id"
     t.date     "date_start"
     t.string   "duration"
+    t.string   "image"
     t.string   "location"
     t.integer  "number_like", default: 0
     t.datetime "created_at",              null: false

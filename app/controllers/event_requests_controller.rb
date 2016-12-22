@@ -1,4 +1,5 @@
 class EventRequestsController < ApplicationController
+  before_action :load_club, only: :create
 
   def new
     @clubs = current_user.clubs
@@ -16,19 +17,27 @@ class EventRequestsController < ApplicationController
     else
       flash_error request
     end
-    redirect_to root_path
+    redirect_to club_member_url(@club)
   end
 
   private
   def request_params
     params.require(:event_request).permit(:name, :description, :expense,
-      :date_start, :duration, :location, :club_id).merge! user_id: current_user.id
+      :date_start, :duration, :location, :club_id, :image).merge! user_id: current_user.id
   end
 
   def create_event
     @event = Event.new event_params
     unless @event.save
       flash_error @event
+    end
+  end
+
+  def load_club
+    @club = Club.find_by id: params[:event_request][:club_id]
+    unless @club
+      flash[:danger] = t("not_found")
+      redirect_to root_path
     end
   end
 

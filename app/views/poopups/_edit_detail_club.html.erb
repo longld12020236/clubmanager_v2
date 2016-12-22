@@ -1,4 +1,4 @@
-   <%= form_for :club_member, url: club_member_path, method: :patch do |f| %>
+   <%= form_for :club_member, url: club_member_path, method: :patch, html: {multipart: true} do |f| %>
    <div class="row">
       <div class="bs-example">
          <div id="detail_club_modal" class="modal fade">
@@ -10,43 +10,48 @@
                   <div class="modal-body">
                      <div class="col-md-12 col-sm-6 no-padng">
                         <div class="model-l">
-                              <ul>
-                                 <label>Message:</label>
-                                    <%= f.text_area :notification, value: @club.notification, class: "form-control", placeholder: "Message here!" %>
-                              </ul>
+                           <ul>
+                              <label>Message:</label>
+                              <%= f.text_area :notification, value: @club.notification, class: "form-control", placeholder: "Message here!" %>
+                           </ul>
                            <div class="clearfix"></div>
-                              <ul>
-                                 <li>
-                                    <a class="edit-describe" onclick="editdescribe();" href="javascript:;">Edit describe club?</a>
-                                    <div class="describe">
-                                       <ul>
-                                          <li>
-                                             <p>Enter your describe's Club You want to change.</p>
-                                          </li>
-                                          <li>Describe Club:</li>
-                                          <li>
-                                             <%= f.text_area :description, value: @club.description, class: "form-control", placeholder: "Describe here!" %>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </li>
-                              </ul>
-                              <ul>
-                                 <li>
-                                    <a class="for-got" onclick="requesttoggle();" href="javascript:;">Send request to edit club's infomation?</a>
-                                    <div class="forgot">
-                                       <ul>
-                                          <li>
-                                             <p>Enter your Name Club You want to change.</p>
-                                          </li>
-                                          <li>Name Club:</li>
-                                          <li>
+                           <ul>
+                              <li>
+                                 <a class="edit-describe" onclick="editdescribe();" href="javascript:;">Edit basic details club?</a>
+                                 <div class="describe">
+                                    <ul>
+                                       <li>
+                                          <p>Enter your describe's Club You want to change.</p>
+                                       </li>
+                                       <li>Describe Club:</li>
+                                       <li>
+                                          <%= f.text_area :description, value: @club.description, class: "form-control", placeholder: "Describe here!" %>
+                                       </li>
+                                       <li>
+                                        <li>Image Club:</li>
+                                        <%= f.file_field :image, class: "form-control" %>
+                                      </li>
+                                    </ul>
+                                 </div>
+                              </li>
+
+                           </ul>
+                           <ul>
+                              <li>
+                                 <a class="for-got" onclick="requesttoggle();" href="javascript:;">Send request to edit club's infomation?</a>
+                                 <div class="forgot">
+                                    <ul>
+                                       <li>
+                                          <p>Enter your Name Club You want to change.</p>
+                                       </li>
+                                       <li>Name Club:</li>
+                                       <li>
                                           <%= f.text_field :name, value: @club.name, id: "forgetemailId", class: "form-control" %>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </li>
-                              </ul>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                           </ul>
                         </div>
                      </div>
                      <div class="clearfix"></div>
@@ -61,17 +66,3 @@
       </div>
    </div>
    <% end %>
-<script type="text/javascript">
-   function requesttoggle(){
-       $(".forgot").slideToggle('slow');
-   }
-   function editdescribe(){
-       $(".describe").slideToggle('slow');
-   }
-   //$(document).ready(function(){
-   //    $(".for-got").click(function(){
-   //
-   //    });
-   //});
-
-</script>
