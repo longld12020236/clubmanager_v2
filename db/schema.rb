@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20161221163747) do
   create_table "news", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "image"
     t.integer  "event_id"
     t.integer  "user_id"
     t.boolean  "approve",    default: false

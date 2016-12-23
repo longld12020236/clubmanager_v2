@@ -3,18 +3,22 @@
     <div class="col-md-7">
       <div class="form-group">
         <h3><%= t "new_news" %></h3>
-        <%= form_for [:management, @news] do |f| %>
+        <%= form_for [:management, @news], html: {multipart:true} do |f| %>
           <%= f.hidden_field :event_id, value: @news.event_id %>
           <div class="form-group">
             <%= f.label t "title_news" %>
             <%= f.text_field :title %>
           </div>
           <div class="form-group">
+            <%= f.label t "image" %>
+            <%= f.file_field :image, class: "form-control" %>
+          </div>
+          <div class="form-group">
             <%= f.label t "descriptions_news" %>
             <%= f.cktext_area :content, class: "text_area" %>
           </div>
           <div class="form-group">
-            <%= f.submit t "create" %>
+            <%= f.submit t "update" %>
           </div>
         <% end %>
       </div>

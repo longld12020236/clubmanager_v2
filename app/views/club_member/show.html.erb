@@ -34,7 +34,7 @@
     <%= image_tag @club.image %>
     <div class="request_acion">
       <% if is_management? @club %>
-      <%= link_to "new event", new_management_event_path,
+      <%= link_to "new event", new_management_event_path(club_id: @club.id),
           class: "button small" %>
         <%= link_to "request to join", management_user_clubs_path(id: @club.id),
           class: "button small" %>
@@ -48,3 +48,22 @@
   <%= render "poopups/edit_detail_club" %>
 
   <%= render "management/events/index" %>
+<section>
+  <header class="majors">
+    <h2>Members</h2>
+    <% @club.users.each do |user| %>
+        <div>
+          <%= link_to user, class: "user_ele" do %>
+          <%= image_tag user.avatar, class: "circle" %>
+        <p class="inner_circle"><%= user.full_name %></p>
+        <% end %>
+        </div>
+    <% end %>
+</header>
+</section>
+
+
+
+
+
+

@@ -34,7 +34,7 @@ class Management::NewsController < ApplicationController
   private
   def news_params
     params.require(:news).permit(:event_id, :title,
-      :content).merge! user_id: current_user.id, approve: true
+      :content, :image).merge! user_id: current_user.id, approve: true
   end
 
   def load_news

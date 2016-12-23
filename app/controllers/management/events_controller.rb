@@ -7,7 +7,7 @@ class Management::EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @clubs = UserClub.user_club_scope(current_user)
+    @club_id = params[:club_id]
   end
 
   def create
@@ -44,7 +44,7 @@ class Management::EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit :club_id, :name, :date_start,
-      :expense, :duration, :location, :description
+      :expense, :duration, :location, :description, :image
   end
 
   def load_event

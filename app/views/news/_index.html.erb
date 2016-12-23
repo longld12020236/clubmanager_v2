@@ -1,0 +1,21 @@
+<section>
+  <header class="major">
+    <h2>Activity Events</h2>
+  </header>
+  <div class="posts">
+    <% @event.news.each do |news| %>
+      <article>
+      <%= link_to news, class: "image" do %>
+        <%= image_tag news.image %>
+      <% end %>
+      <h3><%= news.title %></h3>
+      <p>
+        <%= news.content.truncate_words 5 %>
+      </p>
+      <ul class="actions">
+        <li><%= link_to "More", news, class: "button" %></li>
+      </ul>
+    </article>
+    <% end %>
+  </div>
+</section>

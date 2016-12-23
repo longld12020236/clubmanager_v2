@@ -2,18 +2,15 @@
   <header class="major">
     <h2>Events</h2>
   </header>
-  <div class="features">
+  <div class="features events_index">
     <% @events.each do |item| %>
-      <article>
-        <span class="icon">
-          <%= image_tag item.image, class: "circle", witdh: 100 %>
-        </span>
-        <div class="content">
-          <h3><%= link_to item.name, item %></h3>
-          <p><%= item.description.truncate_words 10 %></p>
-          <i><%= "Date start: #{item.date_start}" %></i>
-        </div>
-      </article>
+    <div class="user_detail">
+      <div class="content">
+        <%= image_tag item.image %>
+        <div class="text1"><%= link_to item.name, item %></div>
+        <div class="text2"><%= item.description.truncate_words 10 %></div>
+      </div>
+    </div>​
     <% end %>
   </div>
 </section>

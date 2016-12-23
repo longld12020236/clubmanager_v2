@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :ratings, only: :create
   resources :user_clubs, only: [:create, :destroy, :update]
   resources :club_member
-  resources :users, only: [:edit, :show]
+  resources :users, only: [:edit, :show, :update]
   resources :albums, only: [:index, :show]
   resources :images
   namespace :management do
